@@ -505,7 +505,7 @@ endm
 
 .data
 
-;variables para el area del circulo
+;VARIABLES PARA LAS AREAS DE LAS FIGURAS
 mensajeRadio DB 10,13, "Ingrese el radio del circulo (debe ser menor o igual a 102>$"
 siguienteLinea DB 10,13, "$" 
 PI equ 314  ;valor de pi 3.14     
@@ -515,42 +515,41 @@ cr              equ     0Dh ;tecla enter
 error           db      cr, 0Ah, 'El numero esta fuera de rango!', siguienteLinea
 diez             dw      10      ; usado como un multiplicador
 precision EQU 2  ; numero de digitos despues del punto   
-
 OP db 0 
 
-;para dibujar circulo
+;VARIABLES PARA EL DIBUJO DEL CIRCULO
 
 x dw 80 ; center x
 y dw 80 ; center y
 r dw 25 ; radius  
 
- balance dw 0
+balance dw 0
     
-    xx dw 0
+xx dw 0
     
-    yy dw 0 
+yy dw 0 
     
-    suma_x dw 0
+suma_x dw 0
     
-    resta_x dw 0
+resta_x dw 0
     
-    suma_y dw 0
+suma_y dw 0
     
-    resta_y dw 0
+resta_y dw 0
    
-    suma_xy dw 0
+suma_xy dw 0
    
-    resta_xy dw 0
+resta_xy dw 0
    
-    suma_yx dw 0
+suma_yx dw 0
    
-    resta_yx dw 0 
+resta_yx dw 0 
 
 
 
 ;Mensajes
    msg1 db 10,13,"Ingrese que figura desea escoger$"
-   msgOP db 10,13,"1:Cuadrado 2:Rectangulo 3:Triangulo 4:Circulo$" 
+   msgOP db 10,13,"1:Cuadrado 2:Rectangulo 3:Triangulo 4:Circulo 5:Salir$" 
    msgP db 10,13,"Funciona$"
    mensajeLado db 10,13, "Ingrese el valor de los lados del cuadrado$"            
    msgBase db 10,13, "Ingrese el valor de la base de la figura$"
@@ -574,7 +573,8 @@ MOV DS,AX
  
 
 Menu: 
-    
+   call LimpiaPantalla
+   call LimpiaPantalla
    ;Muestra mensaje 1
    MOV DX,offset msg1 
    MOV AH,09h  ; Funcion que imprime en pantalla 
@@ -610,7 +610,10 @@ Menu:
    je Triangulo 
    
    cmp OP,4d          
-   je Circulo 
+   je Circulo
+   
+   cmp OP, 5d
+   je Salida 
    
 
     
@@ -656,7 +659,9 @@ Menu:
    Circulo: 
      call LimpiaPantalla    
      areaCirculo
-     jmp Final
+     jmp Final  
+     
+   
      
   
       
