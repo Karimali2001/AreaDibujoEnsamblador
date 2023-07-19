@@ -21,7 +21,9 @@ ENDM
 
 
 ;*******************************************************************        
-;recibe un numero multidigito por teclado y lo guarda en cx
+;recibe un numero multidigito por teclado y lo guarda en cx 
+;va recibiendo digito por digito y multiplicando lo que lleva por 10
+;sumandolo con el nuevo ingresado
 escaneaNumero MACRO
 LOCAL siguienteDigito,fueraDeRango,parar
     
@@ -77,7 +79,9 @@ escribeCaracter MACRO
         int     21h
 ENDM
 ;***************************************************************
-;imprime un numero multidigito que se encuentre en ax              
+;imprime un numero multidigito entero que se encuentre en ax  
+;inicializa en bx un divisor y va extrayendo los digitos mas a la izquierda
+;con las divisiones hasta llegar al ultimo            
 imprimeNumero      MACRO   
 LOCAL comienzaImprimir,calc,siguiente,terminar
         push    bx
