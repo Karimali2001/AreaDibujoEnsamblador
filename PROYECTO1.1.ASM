@@ -499,6 +499,16 @@ circle macro centerx, centery, radius
 endm
 
 ;fin macro para dibujar el circulo
+
+;**************************************************
+;vuelve a modo texto
+modoTexto macro
+  ; return to text mode:
+  mov ah,00
+  mov al,03 ;text mode 3
+  int 10h
+    
+endm
      
      
 .model small
@@ -573,7 +583,6 @@ MOV DS,AX
  
 
 Menu: 
-   call LimpiaPantalla
    call LimpiaPantalla
    ;Muestra mensaje 1
    MOV DX,offset msg1 
@@ -777,13 +786,11 @@ Menu:
                 int 16h			
 
         ; return to text mode:
-                mov ah,00
-                mov al,03 ;text mode 3
-                int 10h
+               modoTexto
 
 
 
-                jmp salida    
+                jmp Menu   
                 
        DibRectangulo:   
         ww equ 25
@@ -855,13 +862,10 @@ Menu:
                 int 16h			
 
         ; return to text mode:
-                mov ah,00
-                mov al,03 ;text mode 3
-                int 10h
+                modoTexto
 
 
-
-                jmp salida 
+                jmp Menu 
                   
                   
              DibTriangulo:     
@@ -925,26 +929,58 @@ t5: mov ah, 0ch    ; put pixel
   int 16h			
 
 ; return to text mode:
-  mov ah,00
-  mov al,03 ;text mode 3
-  int 10h
-          
-          jmp salida
+  modoTexto
+
+jmp Menu
        
        
  DibCirculo: 
                   
    mov ah, 0   ; set display mode function.
 mov al, 13h ; mode 13h = 320x200 pixels, 256 colors.
-int 10h     ; set it!
+int 10h     ; set it! 
 
+
+;INICIALIZO LAS VARIABLES
+
+mov x,80 ; center x
+mov y,80 ; center y
+mov r,25 ; radius  
+
+mov balance,0
+    
+mov xx, 0
+    
+mov yy,0 
+    
+mov suma_x,0
+    
+mov resta_x,0
+    
+mov suma_y,0
+    
+mov resta_y,0
+   
+mov suma_xy,0
+   
+mov resta_xy,0
+   
+mov suma_yx,0
+   
+mov resta_yx,0  
+
+
+;llamo funcion que dibuja
 circle x, y, r
 
 ;wait for keypress
   mov ah,00
-  int 16h
+  int 16h  
+  
+  ; return to text mode:
+  modoTexto
 
-JMP Salida
+JMP Menu
 
 
 
