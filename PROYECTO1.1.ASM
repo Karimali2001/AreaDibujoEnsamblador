@@ -724,7 +724,7 @@ Menu:
 
                 mov cx, 100+w  ; column
                 mov dx, 20     ; row
-                mov al, 14     ; white
+                mov al, 14     ; yellow
             u1: mov ah, 0ch    ; put pixel
                 int 10h
     
@@ -736,7 +736,7 @@ Menu:
 
                 mov cx, 100+w  ; column
                 mov dx, 20+h   ; row
-                mov al, 14     ; white
+                mov al, 14     ; yellow
             u2: mov ah, 0ch    ; put pixel
                 int 10h
     
@@ -748,7 +748,7 @@ Menu:
 
                 mov cx, 100    ; column
                 mov dx, 20+h   ; row
-                mov al, 14     ; white
+                mov al, 14     ; yellow
             u3: mov ah, 0ch    ; put pixel
                 int 10h
     
@@ -761,7 +761,7 @@ Menu:
 
                 mov cx, 100+w  ; column
                 mov dx, 20+h   ; row
-                mov al, 14     ; white
+                mov al, 14     ; yellow
             u4: mov ah, 0ch    ; put pixel
                 int 10h
     
@@ -802,7 +802,7 @@ Menu:
 
                 mov cx, 100+ww  ; column
                 mov dx, 20     ; row
-                mov al, 13     ; white
+                mov al, 13     ; morado
             v1: mov ah, 0ch    ; put pixel
                 int 10h
     
@@ -814,7 +814,7 @@ Menu:
 
                 mov cx, 100+ww  ; column
                 mov dx, 20+hh   ; row
-                mov al, 13     ; white
+                mov al, 13     ; morado
             v2: mov ah, 0ch    ; put pixel
                 int 10h
     
@@ -826,7 +826,7 @@ Menu:
 
                 mov cx, 100    ; column
                 mov dx, 20+hh   ; row
-                mov al, 13     ; white
+                mov al, 13     ; morado
             v3: mov ah, 0ch    ; put pixel
                 int 10h
     
@@ -839,7 +839,7 @@ Menu:
 
                 mov cx, 100+ww  ; column
                 mov dx, 20+hh   ; row
-                mov al, 13     ; white
+                mov al, 13     ; morado
             v4: mov ah, 0ch    ; put pixel
                 int 10h
     
@@ -880,7 +880,7 @@ Menu:
 
     mov cx, 100+wt  ; column
     mov dx, 20     ; row
-    mov al, 12     ; white
+    mov al, 12     ; red
 t1: mov ah, 0ch    ; put pixel
     int 10h
     
@@ -896,7 +896,7 @@ t1: mov ah, 0ch    ; put pixel
 
     mov cx, 100+wt  ; column
     mov dx, 20+ht   ; row
-    mov al, 12     ; white
+    mov al, 12     ; red
 t4: mov ah, 0ch    ; put pixel
     int 10h
     
@@ -908,7 +908,7 @@ t4: mov ah, 0ch    ; put pixel
      
     mov cx, 100+wt  ; column
     mov dx, 20+ht   ; row
-    mov al, 12     ; white
+    mov al, 12     ; red
 t5: mov ah, 0ch    ; put pixel
     int 10h
     
