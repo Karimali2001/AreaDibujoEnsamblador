@@ -1,5 +1,5 @@
 ;****************************************
-; CALCULO DE AREA DE CIRCULO
+; PROYECTO AREAS Y DIBUJOS DE FIGURAS
 ;***************************************************************
 ; imprime un mensaje dado
 
@@ -17,7 +17,7 @@ leeCaracter MACRO
     mov     ah, 01h
     int     21h
 
-ENDM        
+ENDM  
 
 
 ;*******************************************************************        
@@ -516,7 +516,7 @@ endm
 .data
 
 ;VARIABLES PARA LAS AREAS DE LAS FIGURAS
-mensajeRadio DB 10,13, "Ingrese el radio del circulo (debe ser menor o igual a 102>$"
+mensajeRadio DB 10,13, "Ingrese el radio del circulo (debe ser menor o igual a 144>$"
 siguienteLinea DB 10,13, "$" 
 PI equ 314  ;valor de pi 3.14     
 contador db 0 ;contador de uso general para ciclos  
@@ -564,7 +564,6 @@ resta_yx dw 0
    mensajeLado db 10,13, "Ingrese el valor de los lados del cuadrado$"            
    msgBase db 10,13, "Ingrese el valor de la base de la figura$"
    msgAltura db 10,13, "Ingrese el valor de la altura de la figura$"  
-   msgRadio db 10,13, "Ingrese el valor del radio$"
    msgError db 10,13, "El valor ingresado no se encuentra dentro de las opciones.Presione ENTER$"
    m2 db " u^2$"   
    msgdib db 10,13, "Presione ENTER para dibujar la figura seleccionada$"   
